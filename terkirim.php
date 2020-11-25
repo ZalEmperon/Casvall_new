@@ -8,6 +8,7 @@
 	</style>
 	<title>Berhasil</title>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 	<link rel="shortcut icon" href="favicon.ico">

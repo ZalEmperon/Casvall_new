@@ -13,9 +13,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://kit.fontawesome.com/c7a445a64d.js" crossorigin="anonymous"></script>
+		<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
-	<link rel="shortcut icon" href="favicon.ico">
 	<nav class="navbar navbar-expand-lg navbar-light">
 		<div class="container">
 			<a class="navbar-brand" href="index.php"><span class="navlog">C</span> <span class="bran">Casvall</span></a>
