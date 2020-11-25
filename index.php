@@ -1,14 +1,14 @@
-<?
+<?php
 session_start(); 
-php require ('server.php');
+require ('server.php');
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
+  	header('Location: login.php');
   }
   if (isset($_GET['logout'])) {
   	session_destroy();
   	unset($_SESSION['username']);
-  	header("location: login.php");
+  	header("Location: login.php");
   }?>
 <!DOCTYPE html>
 <html>
