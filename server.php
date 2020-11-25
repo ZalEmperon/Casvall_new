@@ -1,4 +1,5 @@
 <?php
+session_start();
 $username = "";
 $email = "";
 $errors = array();
@@ -30,10 +31,10 @@ if(isset($_POST["register"])){
 if(isset($_POST["login"])){
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$password = mysqli_real_escape_string($db, $_POST['password']);
-	if (empty ($username)) {
+	if (empty($username)) {
 		array_push($errors, "Mohon isi Username");
 	}
-	if (empty ($password)) {
+	if (empty($password)) {
 		array_push($errors, "Mohon isi Password");
 	}
 	if (count($errors) == 0) {
@@ -43,7 +44,7 @@ if(isset($_POST["login"])){
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $username;
   	  $_SESSION['success'] = "You are now logged in";
-  	  header('Location: index.php');
+  	  header("Location: index.php");
   	}else {
   		array_push($errors, "Wrong username/password combination");
   	}
