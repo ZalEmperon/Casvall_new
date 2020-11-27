@@ -3,7 +3,10 @@ session_start();
 $username = "";
 $email = "";
 $errors = array();
-$db = mysqli_connect("localhost", "root", "", "databes");
+$db = mysqli_connect("localhost", "root", "", "casvall");
+// URL Website
+const HOME_URL = "http://localhost/Casvall_new/";
+
 if(isset($_POST["register"])){
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$email = mysqli_real_escape_string($db, $_POST['email']);
@@ -74,6 +77,8 @@ if(isset($_POST["login"])){
 			// Jika berhasil, set session login username / passwordnya
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
+			// Cek jika admin
+			if($username == 'admin') $_SESSION['admin'] = true;
 		} else {
 			$error = 1;
 		}
@@ -88,21 +93,7 @@ if(isset($_POST["login"])){
 
 	if(count($errors) == 0) {
 		header("Location: index.php");
+		exit();
 	}
-
-
-
-	// if (count($errors) == 0) {
-	//   	$password = md5($password);
-	//   	$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-	//   	$results = mysqli_query($db, $query);
-	//   	if (mysqli_num_rows($results) == 1) {
-	//   	  $_SESSION['username'] = $username;
-	//   	  $_SESSION['success'] = "You are now logged in";
-	//   	  header("Location: index.php");
-	//   	} else {
- //  		array_push($errors, "Wrong username/password combination");
- //  		}
-	// }
 }
 ?>

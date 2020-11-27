@@ -3,11 +3,13 @@ require ('server.php');
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('Location: login.php');
+  	exit();
   }
   if (isset($_GET['logout'])) {
   	session_destroy();
   	unset($_SESSION['username']);
   	header("Location: login.php");
+  	exit();
   }?>
 <!DOCTYPE html>
 <html>
@@ -37,10 +39,15 @@ require ('server.php');
 	          ?>
 	      	</h3>
 	      </div>
-	  	<?php endif ?>
+	  	<?php endif; ?>
+	  	<div class="d-flex justify-content-between">
 		<?php if(isset($_SESSION['username'])): ?>
 			<p>Logged as <strong><?= $_SESSION['username']; ?></strong></p>
-		<?php endif ?>
+			<?php if(isset($_SESSION['admin'])): ?>
+				<a href="dashboard.php" class="text-dark">Go to Dashboard</a>
+			<?php endif; ?>
+		<?php endif; ?>
+		</div>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-light">
 		<div class="container">
