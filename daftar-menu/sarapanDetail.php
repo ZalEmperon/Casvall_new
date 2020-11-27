@@ -39,8 +39,8 @@ require '../templates/topbar.php';
 				        		<a href="sarapan.php" class="btn btn-info"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
 				        	</div>
 				        	<div>
-						        <a href="sarapanEdit.php?id=<?= $id; ?>" class="btn btn-primary mr-2" title="Edit"><i class="fas fa-edit"></i> Edit</a>
-						        <a href="sarapanHapus.php?id=<?= $id; ?>" class="btn btn-danger" title="Hapus"><i class="fas fa-trash-alt"></i> Hapus</a>
+						        <a href="sarapanEdit.php?id=<?= $id; ?>" class="btn btn-primary mr-2" title="Edit" name="edit"><i class="fas fa-edit"></i> Edit</a>
+						        <a href="sarapanHapus.php?id=<?= $id; ?>" class="btn btn-danger" title="Hapus" name="delete"><i class="fas fa-trash-alt"></i> Hapus</a>
 				    		</div>
 				    	</div>
 				      </div>
