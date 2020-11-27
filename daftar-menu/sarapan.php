@@ -3,6 +3,13 @@ require_once '../server.php';
 require_once '../functions.php';
 // Query data menu
 $daftar_sarapan = query("SELECT id, makanan FROM sarapan");
+if (isset($_POST["add"])) {
+  $makanan = mysqli_real_escape_string ($db, $_POST['makanan']);
+  $deskripsi = mysqli_real_escape_string ($db, $_POST['deskripsi']);
+  $harga = mysqli_real_escape_string ($db, $_POST['harga']);
+  $sqll = "INSERT INTO sarapan(makanan, deskripsi, harga) VALUES ('$makanan', '$deskripsi', '$harga')";
+  mysqli_query($db, $sqll);
+}
 // header template
 require '../templates/header.php';
 // sidebar template
@@ -53,7 +60,7 @@ require '../templates/topbar.php';
                       <label for="harga">Harga Makanan</label>
                       <input type="text" class="form-control" id="harga" name="harga" placeholder="Masukkan harga..." required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
+                    <button type="submit" class="btn btn-primary" name="add">Tambah Data</button>
                   </div>
                 </div>
               </form>
