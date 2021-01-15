@@ -5,7 +5,8 @@ $email = "";
 $errors = array();
 $db = mysqli_connect("localhost", "root", "", "casvall");
 // URL Website
-const HOME_URL = "http://localhost/Casvall_new/";
+const HOME_URL = "http://localhost/Casvall_new";
+// const HOME_URL = "http://10.128.28.127:8000/";
 
 if(isset($_POST["register"])){
 	$username = mysqli_real_escape_string($db, $_POST['username']);
