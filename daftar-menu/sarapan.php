@@ -9,6 +9,8 @@ if (isset($_POST["add"])) {
   $harga = mysqli_real_escape_string ($db, $_POST['harga']);
   $sqll = "INSERT INTO sarapan(makanan, deskripsi, harga) VALUES ('$makanan', '$deskripsi', '$harga')";
   mysqli_query($db, $sqll);
+  header('Location: sarapan.php');
+  exit;
 }
 // header template
 require '../templates/header.php';

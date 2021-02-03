@@ -1,3 +1,13 @@
+<?php 
+require './server.php';
+require './functions.php';
+
+$sarapan = query('SELECT * FROM sarapan');
+$makan_malam = query('SELECT * FROM makan_malam');
+$dessert = query('SELECT * FROM dessert');
+$snack = query('SELECT * FROM snack');
+$minuman = query('SELECT * FROM minuman');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,20 +59,12 @@
 	    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 	      <div class="card-body text3">
 	      	<h5 class="text-center">Sarapan</h5><br>
-	      	<p>
-	        Omelet<span style="float: right;"> Rp.20.500</span><br>
-	        hidangan telur goreng yang disiapkan dengan cara mengocok telur dan menggorengnya dengan minyak goreng atau mentega panas di sebuah wajan<br><br>
-	        Nasi Goreng<span style="float: right;"> Rp.25.500</span><br>
-	        nasi yang digoreng dan diaduk dalam minyak goreng, margarin atau mentega, biasanya ditambah kecap manis, bawang merah, bawang putih, asam jawa, lada dan bumbu-bumbu lainnya<br><br>
-	        Fish n Chips<span style="float: right;"> Rp.30.500</span><br>
-	        Makanan ini terdiri dari ikan ditepungi dengan tepung roti dan dimakan bersama kentang goreng yang dipotong panjang<br><br>
-	        Roti Bakar<span style="float: right;"> Rp.15.00</span><br>
-	        kepingan roti yang dibakar atau dipanggang dengan proses radiasi termal sehingga roti menjadi lebih kecoklatan dan garing<br><br>
-	        Telur dan daging<span style="float: right;"> Rp.28.500</span><br>
-	        Telur goreng yang dihidangkan bersama daging yang dipotong tipis tipis<br><br>
-	        Sereal<span style="float: right;"> Rp.12.000</span><br>
-	        Makanan yang umumnya dimakan dingin, dan dimakan bersama susu, air atau yoghurt, atau dimakan langsung<br>
-	        </p>
+			<p>
+			<?php foreach($sarapan as $srp): ?>
+			<?= $srp['makanan']?><span style="float: right;">Rp. <?= number_format($srp['harga']) ?></span><br>
+			<?= $srp['deskripsi'] ?><br><br>
+			<?php endforeach; ?>
+			</p>
 	      </div>
 	    </div>
 	  </div>
@@ -79,14 +81,10 @@
 	      <div class="card-body text3">
 	      	<h5 class="text-center">Makan Malam</h5><br>
 	      	<p>
-	        Steak<span style="float: right;"> Rp.45.000</span><br>
-	        sepotong besar daging, biasanya daging sapi, dada ayam dan ikan sering kali dipotong menjadi steik lalu di goreng atau dipanggang<br><br>
-	        Spagetti<span style="float: right;"> Rp.35.500</span><br>
-	        pasta yang berbentuk panjang, tipis, silindris, dan padat lalu diberi saus dan bumbu<br><br>
-	        Makaroni<span style="float: right;"> Rp.35.500</span><br>
-	        asta yang bentuknya seperti pipa kecil yang bengkok membentuk busur. Makaroni biasanya diolah dengan saus krim dan kacang polong<br><br>
-	        Risotto<span style="float: right;"> Rp.30.000</span><br>
-	        hidangan nasi campur khas Italia Utara, yaitu beras yang dimasak dengan kaldu sehingga lengket menyerupai krim<br>
+	        <?php foreach($makan_malam as $mkn): ?>
+			<?= $mkn['makanan']?><span style="float: right;">Rp. <?= number_format($mkn['harga']) ?></span><br>
+			<?= $mkn['deskripsi'] ?><br><br>
+			<?php endforeach ?>
 	        </p>
 	      </div>
 	    </div>
@@ -104,17 +102,11 @@
 	      <div class="card-body text3">
 	      	<h5 class="text-center">Dessert</h5><br>
 	      	<p>
-	        Tiramissu<span style="float: right;"> Rp.33.000</span><br>
-	        kue keju khas Italia dengan taburan bubuk kakao di atasnya<br><br>
-	        Strawberry Cheese Cake<span style="float: right;"> Rp.25.500</span><br>
-	        Adonan keju krim yang lembut gurih, dipadu dengan manis segar buah strawberry<br><br>
-	        Eskrim Goreng<span style="float: right;"> Rp.20.000</span><br>
-	        berupa es krim yang digoreng<br><br>
-	        Pie Lemon<span style="float: right;"> Rp.17.500</span><br>
-	        kulit kue dengan isi rasa lemon<br><br>
-	        Choc a block<span style="float: right;"> Rp.30.000</span><br>
-	        Pudding coklat dengan krim, karamel, kacang dan marsmellow<br>
-	        </p>
+	        <?php foreach($dessert as $dsrt): ?>
+			<?= $dsrt['makanan']?><span style="float: right;">Rp. <?= number_format($dsrt['harga']) ?></span><br>
+			<?= $dsrt['deskripsi'] ?><br><br>
+			<?php endforeach; ?>	  
+			</p>
 	      </div>
 	    </div>
 	  </div>
@@ -131,17 +123,10 @@
 	      <div class="card-body text3">
 	      	<h5 class="text-center">Snack</h5><br>
 	      	<p>
-	        Kripik Kentang<span style="float: right;"> Rp.10.500</span><br>
-	        potongan tipis kentang yang digoreng deep fried atau dipanggang sampai garing<br><br>
-	        Siomai<span style="float: right;"> Rp.14.000</span><br>
-	        daging cincang yang dibungkus kulit yang tipis dari tepung terigu<br><br>
-	        Biskuit Coklat<span style="float: right;"> Rp.5.000</span><br>
-	        biskuit yang dilapisi cokelat, atau yang dibuat dengan mengganti sebagian tepung dengan bubuk coklat<br><br>
-	        Pizza<span style="float: right;"> Rp.40.000</span><br>
-	        adonan bundar dan pipih, yang dipanggang di oven dan biasanya dilumuri saus tomat serta keju dengan bahan makanan tambahan lainnya yang bisa dipilih<br><br>
-	        Cilok<span style="float: right;"> Rp.10.000</span><br>
-	        Tapioka yang kenyal dengan tambahan bumbu pelengkap seperti sambal kacang, kecap, dan saus<br>
-	        </p>
+	        <?php foreach($snack as $sn): ?>
+			<?= $sn['makanan']?><span style="float: right;">Rp. <?= number_format($sn['harga']) ?></span><br>
+			<?= $sn['deskripsi'] ?><br><br>
+			<?php endforeach; ?></p>
 	      </div>
 	    </div>
 	  </div>
@@ -158,17 +143,10 @@
 	      <div class="card-body text3">
 	      	<h5 class="text-center">Minuman</h5><br>
 	      	<p>
-	        Es teh<span style="float: right;"> Rp.3.000</span><br>
-	        Teh yang didinginkan dengan es batu<br><br>
-	        Es Jeruk<span style="float: right;"> Rp.5.000</span><br>
-	        Air jeruk yang didinginkan dengan es batu<br><br>
-	        Es Teler<span style="float: right;"> Rp.8.000</span><br>
-	       	buah-buahan yang disajikan dengan santan, dan susu kental manis<br><br>
-	        Es Coklat<span style="float: right;"> Rp.5.000</span><br>
-	        air coklat yang dicampur dengan es<br><br>
-	        Jus Buah<span style="float: right;"> Rp.7.000</span><br>
-	        Buah yang diblender dicampur dengan air dan gula<br>
-	        </p>
+	        <?php foreach($minuman as $mn): ?>
+			<?= $mn['makanan']?><span style="float: right;">Rp. <?= number_format($mn['harga']) ?></span><br>
+			<?= $mn['deskripsi'] ?><br><br>
+			<?php endforeach; ?>	        </p>
 	      </div>
 	    </div>
 	  </div>

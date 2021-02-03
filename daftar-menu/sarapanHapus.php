@@ -2,7 +2,7 @@
 require_once '../server.php';
 require_once '../functions.php';
 $id = $_GET['id'];
-if(isset($_GET["delete"])){
+if(isset($id)){
 	$hapus = "DELETE FROM sarapan WHERE id = '$id'";
 	if(mysqli_query($db, $hapus)){
 		echo "<script>
